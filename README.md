@@ -13,7 +13,6 @@ The console or command interpreter
  >destroy
 
  >store
-
  >persist objects to a file (JSON file).
- 
+
   This console will be a tool to validate this storage engine.
