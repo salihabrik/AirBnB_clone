@@ -166,6 +166,10 @@ Creating a new user, showing the ID and updating the fields
 Creating a new basemodel, counting basemodel, delete and count again
 
 ![Destroy](https://github.com/daorejuela1/AirBnB_clone/blob/master/images/destroy.gif)
+```
+Authors
+```
+`
+ [Mahmoud Youssef Sdiek](https://github.com/MahmoudYoussefSdiek) & [Saliha Brik](https://github.com/salihabrik)
 
-Authors [Mahmoud Youssef Sdiek](https://github.com/MahmoudYoussefSdiek) & [Saliha Brik](https://github.com/salihabrik)
- Binary file addedBIN +6.19 K
+```
