@@ -57,7 +57,13 @@ class FileStorage:
                 json_dict = json.load(file)
                 for key, value in json_dict.items():
                     class_name, obj_id = key.split('.')
-                    obj_class = eval(class_name)
-                    self.__objects[key] = obj_class(**value)
+                    module_name = class_name.lower()
+                    if module_name == "basemodel":
+                        module_name = "base_model"
+                    module = __import__(
+                            "models." + module_name, fromlist=[class_name])
+                    obj_class = getattr(module, class_name)
+                    obj_instance = obj_class(**value)
+                    self.__objects[key] = obj_instance
         except FileNotFoundError:
             pass
