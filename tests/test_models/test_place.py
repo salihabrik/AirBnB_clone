@@ -17,13 +17,7 @@ class TestPlace(unittest.TestCase):
         self.assertEqual(str(type(place)), "<class 'models.place.Place'>")
         self.assertIsInstance(place, Place)
         self.assertTrue(issubclass(type(place), BaseModel))
-        
+
 
 if __name__ == "__main__":
     unittest.main()
-
-
-
-   
-
-
