@@ -2,7 +2,6 @@
 """Unit tests for state class"""
 
 
-
 import unittest
 from models.state import State
 from models.base_model import BaseModel
@@ -18,7 +17,7 @@ class TestState(unittest.TestCase):
         self.assertEqual(str(type(state)), "<class 'models.state.State'>")
         self.assertIsInstance(state, State)
         self.assertTrue(issubclass(type(state), BaseModel))
-        
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -17,9 +17,7 @@ class TestReview(unittest.TestCase):
         self.assertEqual(str(type(review)), "<class 'models.review.Review'>")
         self.assertIsInstance(review, Review)
         self.assertTrue(issubclass(type(review), BaseModel))
-        
+
 
 if __name__ == "__main__":
     unittest.main()
-
-
