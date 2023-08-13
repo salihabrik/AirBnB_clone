@@ -6,11 +6,11 @@ import os
 import unittest
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
-
+import json
 
 class TestFileStorage(unittest.TestCase):
     """Test FileStorage Class"""
-    
+
     def setUp(self):
         """Set up the testing environment"""
         self.file_path = "test_file.json"
@@ -21,7 +21,7 @@ class TestFileStorage(unittest.TestCase):
     def tearDown(self):
         """Clean up after testing"""
         try:
-            os.remove(self.file_path)
+            os.remove(FileStorage.__file_path)
         except FileNotFoundError:
             pass
 
@@ -47,6 +47,16 @@ class TestFileStorage(unittest.TestCase):
         new_storage = FileStorage()
         new_storage.reload()
         self.assertIn(obj_key, new_storage._FileStorage__objects)
+    
+    
+    def test_reload_nonexistent_file(self):
+        """
+        Test reload when file does not exist
+        """
+        self.storage.reload()
+        self.assertEqual(len(self.storage.all()), 0)
+
+
 
 if __name__ == '__main__':
     unittest.main()
