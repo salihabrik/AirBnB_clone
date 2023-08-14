@@ -144,11 +144,19 @@ class HBNBCommand(cmd.Cmd):
         elif args[0] not in self.classes:
             print("** class doesn't exist **")
         else:
-            class_objs = [
-                value for key, value in all_objs.items()
-                if key.startswith(arg)]
-            strs = [str(obj) for obj in class_objs]
-            print(strs)
+            if arg[0].endswith('.all'):
+                class_name = arg[0].split(".")[0]
+                class_objs = [
+                    value for key, value in all_objs.items()
+                    if key.startswith(class_name)]
+                strs = [str(obj) for obj in class_objs]
+                print(strs)
+            else:
+                class_objs = [
+                    value for key, value in all_objs.items()
+                    if key.startswith(arg[0])]
+                strs = [str(obj) for obj in class_objs]
+                print(strs)
 
     def do_update(self, arg):
         """
