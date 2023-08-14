@@ -72,6 +72,26 @@ class HBNBCommand(cmd.Cmd):
         """
         print("Quit command to exit the program")
 
+    def default(self, arg):
+        """Handle any command that is not defined"""
+        methods = {
+            "all": self.do_all,
+            "show": self.do_show,
+            "destroy": self.do_destroy,
+            "count": self.do_count,
+            "update": self.do_update
+        }
+        if "." in arg:
+            args = arg.split(".")
+            class_name = args[0]
+            method_name = args[1][:-2]
+            if class_name in self.classes and method_name in methods:
+                methods[method_name](class_name)
+            else:
+                print("** Unknown syntax: {} **".format(arg))
+        else:
+            print("** Unknown syntax: {} **".format(arg))
+
     def do_create(self, arg):
         """
         Creates a new instance of any available model,
@@ -140,7 +160,7 @@ class HBNBCommand(cmd.Cmd):
         args = shlex.split(arg)
         all_objs = storage.all()
         if len(args) == 0:
-            print([str(obj) for obj in all_objs.values()])
+            print([str(obj) for obj in all_objs.items()])
         elif args[0] not in self.classes:
             print("** class doesn't exist **")
         else:
@@ -204,8 +224,9 @@ class HBNBCommand(cmd.Cmd):
         else:
             all_objs = storage.all()
             count = len(
-                [obj for obj in all_objs.values()
-                 if type(obj) == self.classes[args[0]]])
+                [obj for key, obj in all_objs.items()
+                 if key.startswith(arg[0])]
+                        )
             print(count)
 
 
