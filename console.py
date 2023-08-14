@@ -204,9 +204,8 @@ class HBNBCommand(cmd.Cmd):
         else:
             all_objs = storage.all()
             count = len(
-                [obj for key, obj in all_objs.items()
-                 if key.startswith(arg[0])]
-                        )
+                [obj for obj in all_objs.values()
+                 if type(obj) == self.classes[args[0]]])
             print(count)
 
 
