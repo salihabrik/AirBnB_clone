@@ -72,6 +72,26 @@ class HBNBCommand(cmd.Cmd):
         """
         print("Quit command to exit the program")
 
+    def default(self, arg):
+        """Handle any command that is not defined"""
+        methods = {
+            "all": self.do_all,
+            "show": self.do_show,
+            "destroy": self.do_destroy,
+            "count": self.do_count,
+            "update": self.do_update
+        }
+        if "." in arg:
+            args = arg.split(".")
+            class_name = args[0]
+            method_name = args[1][:-2]
+            if class_name in self.classes and method_name in methods:
+                methods[method_name](class_name)
+            else:
+                print("** Unknown syntax: {} **".format(arg))
+        else:
+            print("** Unknown syntax: {} **".format(arg))
+
     def do_create(self, arg):
         """
         Creates a new instance of any available model,
@@ -140,15 +160,23 @@ class HBNBCommand(cmd.Cmd):
         args = shlex.split(arg)
         all_objs = storage.all()
         if len(args) == 0:
-            print([str(obj) for obj in all_objs.values()])
+            print([str(obj) for obj in all_objs.items()])
         elif args[0] not in self.classes:
             print("** class doesn't exist **")
         else:
-            class_objs = [
-                value for key, value in all_objs.items()
-                if key.startswith(arg)]
-            strs = [str(obj) for obj in class_objs]
-            print(strs)
+            if arg[0].endswith('.all'):
+                class_name = arg[0].split(".")[0]
+                class_objs = [
+                    value for key, value in all_objs.items()
+                    if key.startswith(class_name)]
+                strs = [str(obj) for obj in class_objs]
+                print(strs)
+            else:
+                class_objs = [
+                    value for key, value in all_objs.items()
+                    if key.startswith(arg[0])]
+                strs = [str(obj) for obj in class_objs]
+                print(strs)
 
     def do_update(self, arg):
         """
@@ -182,6 +210,24 @@ class HBNBCommand(cmd.Cmd):
                     obj.save()
                 else:
                     print("** attribute doesn't exist **")
+
+    def do_count(self, arg):
+        """
+        Retrieves the number of instances of a class.
+        Usage: <class name>.count()
+        """
+        args = shlex.split(arg)
+        if len(args) == 0:
+            print("** class name missing **")
+        elif args[0] not in self.classes:
+            print("** class doesn't exist **")
+        else:
+            all_objs = storage.all()
+            count = len(
+                [obj for key, obj in all_objs.items()
+                 if key.startswith(arg[0])]
+                        )
+            print(count)
 
 
 if __name__ == '__main__':
