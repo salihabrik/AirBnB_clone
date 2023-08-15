@@ -14,7 +14,7 @@ class TestAmenity(unittest.TestCase):
     """
     Test the Amenity class.
     """
-    
+
     
     def test_instance_inheritance(self):
         """
