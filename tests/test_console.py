@@ -73,25 +73,26 @@ class TestConsole(unittest.TestCase):
         output = sys.stdout.getvalue().strip()
         self.assertTrue("1" in output)  
         
+
     def test_show_with_id(self):
         user = storage.create("User")
         user_id = user.id
         HBNBCommand().onecmd(f"show User {user_id}")
         output = sys.stdout.getvalue().strip()
         self.assertTrue(user_id in output) 
-        
-    
+
+
     def test_show_with_id_not_found(self):
         HBNBCommand().onecmd("show User invalid_id")
         output = sys.stdout.getvalue().strip()
         self.assertEqual(output, "** no instance found **")
-
+        
+        
     def test_show_without_id(self):
         HBNBCommand().onecmd("show User")
         output = sys.stdout.getvalue().strip()
         self.assertEqual(output, "** instance id missing **")
 
-   
+
 if __name__ == "__main__":
     unittest.main()
-   
