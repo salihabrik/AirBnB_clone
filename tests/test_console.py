@@ -44,13 +44,15 @@ class TestConsole(unittest.TestCase):
         output = sys.stdout.getvalue().strip()
         self.assertTrue(output)
     
+    
     def test_destroy(self):
         user = storage.create("User")
         user_id = user.id
         HBNBCommand().onecmd(f"destroy User {user_id}")
         all_objs = storage.all()
         self.assertTrue(user_id not in all_objs)
-        
+    
+    
     def test_update(self):
         user = storage.create("User")
         user_id = user.id
