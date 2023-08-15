@@ -81,7 +81,8 @@ class TestConsole(unittest.TestCase):
         HBNBCommand().onecmd("show User")
         output = sys.stdout.getvalue().strip()
         self.assertEqual(output, "** instance id missing **")
-        
+
+   
 if __name__ == "__main__":
     unittest.main()
-      
+   
