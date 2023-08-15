@@ -14,30 +14,37 @@ import os
 
 
 class TestConsole(unittest.TestCase):
+    
     def setUp(self):
         self.saved_stdout = sys.stdout
         self.saved_stderr = sys.stderr
         sys.stdout = StringIO()
         sys.stderr = StringIO()
+    
 
     def tearDown(self):
         sys.stdout = self.saved_stdout
         sys.stderr = self.saved_stderr
-
+        
+    
     def test_quit(self):
         with self.assertRaises(SystemExit):
             HBNBCommand().onecmd("quit")
+    
+    
     def test_create(self):
         HBNBCommand().onecmd("create User")
         output = sys.stdout.getvalue().strip()
         self.assertTrue(output)
-
+        
+    
     def test_show(self):
         user = storage.create("User")
         user_id = user.id
         HBNBCommand().onecmd(f"show User {user_id}")
         output = sys.stdout.getvalue().strip()
         self.assertTrue(user_id in output)
+        
     
     def test_all(self):
         HBNBCommand().onecmd("all")
