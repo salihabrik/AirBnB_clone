@@ -82,5 +82,6 @@ class TestConsole(unittest.TestCase):
         output = sys.stdout.getvalue().strip()
         self.assertEqual(output, "** instance id missing **")
         
-    
+if __name__ == "__main__":
+    unittest.main()
       
