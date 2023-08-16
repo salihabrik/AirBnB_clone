@@ -104,8 +104,8 @@ class HBNBCommand(cmd.Cmd):
             class_name = command[0]
             values = command[1].split(",")
             id = values[0][8:-2]
-            attr_name = values[1][1:-1]
-            new_value = values[2][1:-1]
+            attr_name = values[1][2:-1]
+            new_value = values[2][2:-2]
             self.do_update(
                 class_name + " " + id + " " + attr_name + " " + new_value)
         else:
