@@ -92,7 +92,7 @@ class HBNBCommand(cmd.Cmd):
         elif ".show" in arg:
             command = arg.split(".")
             class_name = command[0]
-            id = command[1].strip("()\"")
+            id = command[1][6:-2]
             self.do_show(class_name + " " + id)
         else:
             print("** Unknown syntax: {} **".format(arg))
