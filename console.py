@@ -223,12 +223,12 @@ class HBNBCommand(cmd.Cmd):
                 obj = all_objs[key]
                 attr_name = args[2]
                 attr_value = args[3].strip('"')
-            #    if hasattr(obj, attr_name):
-                attr_type = type(getattr(obj, attr_name))
-                setattr(obj, attr_name, attr_type(attr_value))
-                obj.save()
-                # else:
-                #     print("** attribute doesn't exist **")
+                if hasattr(obj, attr_name):
+                    attr_type = type(getattr(obj, attr_name))
+                    setattr(obj, attr_name, attr_type(attr_value))
+                    obj.save()
+                else:
+                    print("** attribute doesn't exist **")
 
     def do_count(self, arg):
         """
