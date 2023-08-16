@@ -81,7 +81,7 @@ class HBNBCommand(cmd.Cmd):
             "count": self.do_count,
             "update": self.do_update
         }
-        if "." in arg:
+        if ".all" in arg or ".count" in arg:
             args = arg.split(".")
             class_name = args[0]
             method_name = args[1][:-2]
@@ -89,6 +89,11 @@ class HBNBCommand(cmd.Cmd):
                 methods[method_name](class_name)
             else:
                 print("** Unknown syntax: {} **".format(arg))
+        elif ".show" in arg:
+            command = arg.split(".")
+            class_name = command[0]
+            id = command[1].strip("()\"")
+            self.do_show(class_name + " " + id)
         else:
             print("** Unknown syntax: {} **".format(arg))
 
