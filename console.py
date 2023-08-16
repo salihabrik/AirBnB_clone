@@ -228,9 +228,7 @@ class HBNBCommand(cmd.Cmd):
                     setattr(obj, attr_name, attr_type(attr_value))
                     obj.save()
                 else:
-                    setattr(obj, attr_name, attr_value)
-                    obj.save()
-                    # print("** attribute doesn't exist **")
+                    print("** attribute doesn't exist **")
 
     def do_count(self, arg):
         """
