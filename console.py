@@ -94,6 +94,11 @@ class HBNBCommand(cmd.Cmd):
             class_name = command[0]
             id = command[1][6:-2]
             self.do_show(class_name + " " + id)
+        elif ".destroy" in arg:
+            command = arg.split(".")
+            class_name = command[0]
+            id = command[1][9:-2]
+            self.do_destroy(class_name + " " + id)
         else:
             print("** Unknown syntax: {} **".format(arg))
 
