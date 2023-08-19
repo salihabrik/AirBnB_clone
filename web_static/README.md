@@ -21,7 +21,7 @@ Did you know you can add CSS to HTML without using a separate file? In many case
 Share
 Inline Styling in HTML
  # Introduction
- 
+
 Usually, CSS is written in a separate CSS file (with file extension .css) or in a <style> tag inside of the <head> tag, but there is a third place which is also valid. The third place you can write CSS is inside of an HTML tag, using the style attribute. When CSS is written using the style attribute, it’s called an “inline style”. In general, this is not considered a best practice. However, there are times when inline styles are the right (or only) choice.
 
 Inline Style Syntax
@@ -90,5 +90,4 @@ As we mentioned, there are two other styles of implementing CSS: internal and ex
 Conclusion
 Sometimes, inline styles are necessary. If you are building a web page by hand, however, you should avoid them whenever possible. Using a separate CSS file is the most powerful and flexible method.
 
-Other resources
-W3.org inline styles definition
+![Alt text](image.png)
