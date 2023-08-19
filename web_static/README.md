@@ -91,3 +91,6 @@ Conclusion
 Sometimes, inline styles are necessary. If you are building a web page by hand, however, you should avoid them whenever possible. Using a separate CSS file is the most powerful and flexible method.
 
 ![Alt text](image.png)
+
+![Alt text](image-1.png)
+
