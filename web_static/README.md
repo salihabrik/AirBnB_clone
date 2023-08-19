@@ -40,7 +40,7 @@ Inline styles look and operate much like CSS, with a few differences. Inline sty
 The p tag with the inline style attribute is the focus here:
 
 <p style="color: blue; font-size: 46px;">
-``````
+
 The style attribute is just like any other HTML attribute. It goes inside the element’s beginning tag, right after the tag name. The attribute starts with style, followed by an equals sign, =, and then finally uses double quotes, "", which contain the value of the attribute.
 
 In our case, the value of the style attribute will be CSS property-value pairs: "property: value;". You can have as many property value pairs as you want. Unlike normal CSS syntax, inline styling does not use selectors or curly braces. Don’t forget to include the semicolon ; after each pair!
