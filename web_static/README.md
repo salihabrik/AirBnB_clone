@@ -1,6 +1,6 @@
-``````
-web_static
-``````
+
+# web_static
+
 ![logo](https://s3.amazonaws.com/intranet-projects-files/concepts/74/hbnb_step1.png)
 
 # What Are HTML & CSS?
@@ -13,18 +13,20 @@ With this understanding of the difference between HTML and CSS, let’s dive int
 ![logo](https://cdn4.buysellads.net/uu/1/110298/1643812188-Auth0-Developer-Survey-_260x200_.png)
 
 # Introduction to HTML
+
 At its heart, HTML is a language made up of elements, which can be applied to pieces of text to give them different meaning in a document (Is it a paragraph? Is it a bulleted list? Is it part of a table?), structure a document into logical sections (Does it have a header? Three columns of content? A navigation menu?), and embed content such as images and videos into a page. This module will introduce the first two of these and introduce fundamental concepts and syntax you need to know to understand HTML.
 
 Inline Styles in HTML
 Did you know you can add CSS to HTML without using a separate file? In many cases, it comes in handy. Learn when (and when not) to use CSS inline styling.
 Share
 Inline Styling in HTML
-Introduction
+ # Introduction
+ 
 Usually, CSS is written in a separate CSS file (with file extension .css) or in a <style> tag inside of the <head> tag, but there is a third place which is also valid. The third place you can write CSS is inside of an HTML tag, using the style attribute. When CSS is written using the style attribute, it’s called an “inline style”. In general, this is not considered a best practice. However, there are times when inline styles are the right (or only) choice.
 
 Inline Style Syntax
 Inline styles look and operate much like CSS, with a few differences. Inline styles directly affect the tag they are written in, without the use of selectors. Here’s a basic HTML page using inline styles:
-
+``````
 <!DOCTYPE html>
 <html>
   <head>
@@ -40,7 +42,7 @@ Inline styles look and operate much like CSS, with a few differences. Inline sty
 The p tag with the inline style attribute is the focus here:
 
 <p style="color: blue; font-size: 46px;">
-
+``````
 The style attribute is just like any other HTML attribute. It goes inside the element’s beginning tag, right after the tag name. The attribute starts with style, followed by an equals sign, =, and then finally uses double quotes, "", which contain the value of the attribute.
 
 In our case, the value of the style attribute will be CSS property-value pairs: "property: value;". You can have as many property value pairs as you want. Unlike normal CSS syntax, inline styling does not use selectors or curly braces. Don’t forget to include the semicolon ; after each pair!
